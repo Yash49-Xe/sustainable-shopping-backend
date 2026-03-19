@@ -7,6 +7,14 @@ from datetime import datetime
 from groq import Groq
 import json
 import csv
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app):
+    print("Backend started successfully!")
+    yield
+
+app = FastAPI(lifespan=lifespan)
 
 DB_PATH = os.path.join(os.path.dirname(__file__), "history.db")
 
@@ -48,8 +56,6 @@ def get_history():
     ]
 
 init_db()
-
-app = FastAPI()
 
 # Load Indian products CSV into memory at startup
 INDIAN_PRODUCTS = {}
@@ -263,3 +269,11 @@ def health():
 @app.get("/history")
 def get_scan_history():
     return {"history": get_history()}
+
+@app.get("/")
+def root():
+    return {
+        "status": "ok",
+        "message": "Sustainable Shopping Assistant API",
+        "endpoints": ["/scan/{barcode}", "/history", "/health"]
+    }
