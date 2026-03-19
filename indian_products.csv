@@ -1,0 +1,54 @@
+barcode,product_name,brand,category,packaging,ingredients_text,labels,nutriscore_grade
+8901058855398,Maggi 2-Minute Noodles,Nestle,noodles,plastic,wheat flour palm oil salt tapioca starch,Vegetarian,d
+8901491503993,Lays Classic Salted,PepsiCo,chips,plastic,potatoes vegetable oil salt,Vegetarian,d
+8904011900014,Parle-G Biscuits,Parle,biscuit,plastic,wheat flour sugar vegetable oil milk solids,Vegetarian,c
+8901396030092,Dettol Original Soap,Reckitt,soap,plastic,soap trichlocarban,Antibacterial,
+8901030894283,Amul Butter,Amul,dairy,plastic,milk fat salt,Vegetarian,c
+8901719110719,Britannia Good Day Biscuits,Britannia,biscuit,plastic,wheat flour sugar butter cashew,Vegetarian,d
+8901063100527,Kurkure Masala Munch,PepsiCo,chips,plastic,rice meal corn meal palm oil spices,Vegetarian,e
+8901719152078,Britannia Marie Gold,Britannia,biscuit,plastic,wheat flour sugar vegetable oil,Vegetarian,c
+8901764100023,Haldiram Bhujia,Haldirams,snack,plastic,besan vegetable oil spices,Vegetarian,d
+8906001000023,Paper Boat Aamras,Hector Beverages,juice,tetra pak,mango pulp sugar water,Vegan,c
+8901058000875,Maggi Masala,Nestle,sauce,plastic,spices salt onion,Vegetarian,c
+8901058004088,Maggi Ketchup,Nestle,sauce,plastic,tomato sugar vinegar salt spices,Vegetarian,c
+8901030004757,Amul Taaza Milk,Amul,milk,plastic,toned milk,Vegetarian,b
+8901030004764,Amul Gold Milk,Amul,milk,plastic,standardised milk,Vegetarian,b
+8901012000018,Tata Salt,Tata,salt,plastic,iodised salt,Vegan,a
+8901725101001,Fortune Sunflower Oil,Adani Wilmar,oil,plastic,refined sunflower oil,Vegan,d
+8901725000992,Fortune Soyabean Oil,Adani Wilmar,oil,plastic,refined soyabean oil,Vegan,d
+8901063050029,Uncle Chipps Spicy Treat,PepsiCo,chips,plastic,potatoes vegetable oil spices,Vegetarian,e
+8906017720018,Raw Pressery Apple Juice,Raw Pressery,juice,plastic,apple juice,Vegan,b
+8901058857125,Maggi Vegetable Atta Noodles,Nestle,noodles,plastic,whole wheat flour vegetables palm oil,Vegetarian,c
+8901764000238,Haldiram Aloo Bhujia,Haldirams,snack,plastic,potato besan spices oil,Vegetarian,d
+8901063040020,Cheetos Masala Ball,PepsiCo,chips,plastic,cornmeal vegetable oil spices,Vegetarian,d
+8906002030018,Bingo Mad Angles,ITC,chips,plastic,wheat flour palm oil spices,Vegetarian,d
+8901058004163,Maggi Hot Sweet Sauce,Nestle,sauce,glass,tomato sugar chilli vinegar,Vegetarian,c
+8901012034013,Tata Tea Premium,Tata,tea,paper,black tea,Vegan,b
+8901012040038,Tata Coffee,Tata,coffee,glass,roasted coffee,Vegan,b
+8901058000226,Nescafe Classic,Nestle,coffee,glass,roasted coffee chicory,Vegetarian,b
+8901030750070,Amul Dark Chocolate,Amul,chocolate,plastic,cocoa sugar milk,Vegetarian,c
+8901030750087,Amul Milk Chocolate,Amul,chocolate,plastic,sugar milk cocoa butter,Vegetarian,d
+8901764500016,Haldirams Soan Papdi,Haldirams,sweet,cardboard,sugar besan ghee cardamom,Vegetarian,d
+8906017990018,Paperboat Jaljeera,Hector Beverages,beverage,tetra pak,water spices lemon,Vegan,b
+8901012057004,Tata Sampann Chana Dal,Tata,dal,plastic,chana dal,Vegan,a
+8901012057011,Tata Sampann Moong Dal,Tata,dal,plastic,moong dal,Vegan,a
+8901012057028,Tata Sampann Toor Dal,Tata,dal,plastic,toor dal,Vegan,a
+8901725131008,Fortune Basmati Rice,Adani Wilmar,rice,plastic,basmati rice,Vegan,b
+8906005010018,24 Mantra Organic Rice,24 Mantra,rice,paper,organic basmati rice,Organic Vegan,a
+8906005020017,24 Mantra Organic Dal,24 Mantra,dal,paper,organic toor dal,Organic Vegan,a
+8901012080002,Tata Nutrikorner Oats,Tata,oats,cardboard,whole grain oats,Vegan,a
+8901058880185,Nestle Munch,Nestle,chocolate,plastic,sugar wheat flour cocoa palm oil,Vegetarian,e
+8901058003692,KitKat,Nestle,chocolate,plastic,sugar wheat flour cocoa butter milk,Vegetarian,d
+8901058004521,Milkybar,Nestle,chocolate,plastic,sugar milk cocoa butter,Vegetarian,d
+8901030020030,Amul Ghee,Amul,dairy,plastic,pure cow ghee,Vegetarian,d
+8901030001008,Amul Paneer,Amul,dairy,plastic,milk,Vegetarian,c
+8901396020511,Dettol Handwash,Reckitt,soap,plastic,water chloroxylenol,Antibacterial,
+8901396020528,Dettol Shampoo,Reckitt,shampoo,plastic,water sodium laureth sulphate,Dermatologist tested,
+8901612000110,Colgate Strong Teeth,Colgate,toothpaste,plastic,calcium carbonate fluoride,Dentist recommended,
+8901612010027,Colgate MaxFresh,Colgate,toothpaste,plastic,calcium carbonate fluoride menthol,Dentist recommended,
+8901764000252,Haldirams Namkeen Mix,Haldirams,snack,plastic,besan peanuts spices oil,Vegetarian,d
+8906002060015,Sunfeast Dark Fantasy,ITC,biscuit,plastic,wheat flour sugar cocoa palm oil,Vegetarian,e
+8906002010018,Sunfeast Yippee Noodles,ITC,noodles,plastic,wheat flour palm oil salt,Vegetarian,d
+8901058004200,Maggi Chicken Noodles,Nestle,noodles,plastic,wheat flour chicken extract palm oil,Non-Vegetarian,d
+8901012000025,Tata Gluco Plus,Tata,beverage,plastic,glucose sugar water,Vegetarian,d
+8906017730017,Raw Pressery Mango Juice,Raw Pressery,juice,plastic,mango pulp water,Vegan,b
