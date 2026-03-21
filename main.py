@@ -160,6 +160,65 @@ def fetch_product(barcode: str) -> dict:
 
 groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
+def analyze_unknown_product(barcode: str) -> dict:
+    try:
+        chat_completion = groq_client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are an environmental impact analyst. Always respond with valid JSON only, no markdown, no extra text."
+                },
+                {
+                    "role": "user",
+                    "content": f"""A product with barcode {barcode} was scanned but not found in any database.
+
+Based on common products with similar barcodes and general knowledge, provide an environmental impact assessment.
+
+Respond ONLY in this exact JSON format with no other text:
+{{
+    "product_name": "best guess at product name or 'Unknown Product'",
+    "brand": "best guess at brand or 'Unknown Brand'",
+    "packaging": "most likely packaging type",
+    "categories": "most likely category",
+    "ingredients_text": "likely key ingredients if known",
+    "score": 50,
+    "grade": "C",
+    "reasons": [
+        "reason 1 for this grade",
+        "reason 2 for this grade"
+    ],
+    "labels": ""
+}}
+
+Rules for grading:
+- A (0-15): organic, minimal packaging, plant-based
+- B (16-30): recyclable packaging, no harmful ingredients
+- C (31-45): average product, unknown impact
+- D (46-60): plastic packaging, processed ingredients
+- E (61-100): single use plastic, palm oil, harmful chemicals
+}}"""
+                }
+            ],
+            temperature=0.3,
+            max_tokens=512,
+        )
+
+        response_text = chat_completion.choices[0].message.content.strip()
+
+        if "```json" in response_text:
+            response_text = response_text.split("```json")[1].split("```")[0].strip()
+        elif "```" in response_text:
+            response_text = response_text.split("```")[1].split("```")[0].strip()
+
+        result = json.loads(response_text)
+        print(f"Groq analysis SUCCESS for barcode {barcode}: {result.get('product_name')} - Grade {result.get('grade')}")
+        return result
+
+    except Exception as e:
+        print(f"Groq analysis error: {e}")
+        return None
+
 def get_alternative(product: dict) -> dict:
     product_name = product.get("product_name") or "Unknown Product"
     brand = product.get("brands") or "Unknown Brand"
@@ -228,6 +287,44 @@ def scan_product(barcode: str):
     product = fetch_product(barcode)
 
     if not product:
+        # Try Groq AI analysis for unknown products
+        ai_analysis = analyze_unknown_product(barcode)
+
+        if ai_analysis:
+            # Build a product dict from AI analysis
+            product = {
+                "product_name": ai_analysis.get("product_name", "Unknown Product"),
+                "brands": ai_analysis.get("brand", "Unknown Brand"),
+                "packaging": ai_analysis.get("packaging", "Unknown"),
+                "categories": ai_analysis.get("categories", "general"),
+                "ingredients_text": ai_analysis.get("ingredients_text", ""),
+                "labels": ai_analysis.get("labels", ""),
+                "_source": "ai_analysis"
+            }
+
+            grade = ai_analysis.get("grade", "C")
+            score = ai_analysis.get("score", 50)
+            reasons = ai_analysis.get("reasons", [
+                "Product not found in database",
+                "Grade estimated by AI based on barcode"
+            ])
+
+            alternative = get_alternative(product) if grade in ["C", "D", "E"] else None
+
+            return {
+                "barcode": barcode,
+                "name": product["product_name"],
+                "brand": product["brands"],
+                "grade": grade,
+                "score": score,
+                "reasons": reasons,
+                "packaging": product["packaging"],
+                "labels": product["labels"],
+                "source": "ai_analysis",
+                "alternative": alternative,
+            }
+
+        # Final fallback if Groq also fails
         return {
             "barcode": barcode,
             "name": "Unknown Product",
