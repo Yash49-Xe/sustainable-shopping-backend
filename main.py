@@ -286,45 +286,8 @@ Respond ONLY in this exact JSON format with no other text:
 def scan_product(barcode: str):
     product = fetch_product(barcode)
 
+    # In the if not product block - replace everything with:
     if not product:
-        # Try Groq AI analysis for unknown products
-        ai_analysis = analyze_unknown_product(barcode)
-
-        if ai_analysis:
-            # Build a product dict from AI analysis
-            product = {
-                "product_name": ai_analysis.get("product_name", "Unknown Product"),
-                "brands": ai_analysis.get("brand", "Unknown Brand"),
-                "packaging": ai_analysis.get("packaging", "Unknown"),
-                "categories": ai_analysis.get("categories", "general"),
-                "ingredients_text": ai_analysis.get("ingredients_text", ""),
-                "labels": ai_analysis.get("labels", ""),
-                "_source": "ai_analysis"
-            }
-
-            grade = ai_analysis.get("grade", "C")
-            score = ai_analysis.get("score", 50)
-            reasons = ai_analysis.get("reasons", [
-                "Product not found in database",
-                "Grade estimated by AI based on barcode"
-            ])
-
-            alternative = get_alternative(product) if grade in ["C", "D", "E"] else None
-
-            return {
-                "barcode": barcode,
-                "name": product["product_name"],
-                "brand": product["brands"],
-                "grade": grade,
-                "score": score,
-                "reasons": reasons,
-                "packaging": product["packaging"],
-                "labels": product["labels"],
-                "source": "ai_analysis",
-                "alternative": alternative,
-            }
-
-        # Final fallback if Groq also fails
         return {
             "barcode": barcode,
             "name": "Unknown Product",
