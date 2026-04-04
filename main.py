@@ -85,6 +85,9 @@ def fetch_from_indian_csv(barcode: str) -> dict:
             "labels": product.get("labels", ""),
             "nutriscore_grade": product.get("nutriscore_grade", ""),
             "packaging_tags": [],
+            "price": product.get("price", ""),
+            "size": product.get("size", ""),
+            "recyclable": product.get("recyclable", ""),
             "_source": "indian_csv"
         }
     return {}
@@ -311,7 +314,8 @@ def scan_product(barcode: str):
 
     return {
         "barcode": barcode,
-        "name": product.get("product_name") or product.get("product_name_en") or "Unknown Product",
+        "name": product.get("product_name") or
+                product.get("product_name_en") or "Unknown Product",
         "brand": product.get("brands", "Unknown Brand"),
         "grade": grade,
         "score": score_result["score"],
@@ -320,6 +324,9 @@ def scan_product(barcode: str):
         "labels": product.get("labels", "None"),
         "source": product.get("_source", "unknown"),
         "alternative": alternative,
+        "price": product.get("price", ""),
+        "size": product.get("size", ""),
+        "recyclable": product.get("recyclable", ""),
     }
 
 @app.get("/health")
