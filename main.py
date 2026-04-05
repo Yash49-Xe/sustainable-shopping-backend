@@ -78,62 +78,38 @@ import requests
 
 def fetch_from_barcodelookup(barcode: str) -> dict:
     api_key = os.environ.get("BARCODE_API_KEY")
-
     if not api_key:
-        raise ValueError("BARCODE_API_KEY not set")
-
-    url = "https://api.barcodelookup.com/v3/products"
-    params = {
-        "barcode": barcode,
-        "formatted": "y",
-        "key": api_key
-    }
-
+        return {}
+    url = f"https://api.barcodelookup.com/v3/products?barcode={barcode}&formatted=y&key={api_key}"
     try:
-        response = requests.get(url, params=params, timeout=5)
-
-        if response.status_code != 200:
-            print(f"API error: {response.status_code} - {response.text}")
+        response = requests.get(url, timeout=5)
+        if response.status_code == 429:
+            print("Barcode Lookup quota exhausted — skipping")
             return {}
-
-        data = response.json()
-        products = data.get("products")
-
-        if not products or not isinstance(products, list):
-            return {}
-
-        p = products[0]
-
-        stores = p.get("stores") or []
-        price = stores[0].get("price") if stores else ""
-
-        return {
-            "product_name": p.get("title", ""),
-            "brands": p.get("brand", ""),
-            "packaging": p.get("packaging", ""),
-            "categories": p.get("category", ""),
-            "ingredients_text": p.get("ingredients", ""),
-            "labels": p.get("features", ""),
-            "nutriscore_grade": "",
-            "packaging_tags": [],
-            "price": price,
-            "size": p.get("size", ""),
-            "recyclable": "",
-            "description": p.get("description", ""),
-            "source": "barcodelookup"
-        }
-
-    except requests.exceptions.Timeout:
-        print("Request timed out")
-        return {}
-
-    except requests.exceptions.RequestException as e:
-        print(f"Request failed: {e}")
-        return {}
-
+        if response.status_code == 200:
+            data = response.json()
+            products = data.get("products", [])
+            if products:
+                p = products[0]
+                print(f"Barcode Lookup found: {p.get('title')}")
+                return {
+                    "product_name": p.get("title", ""),
+                    "brands": p.get("brand", ""),
+                    "packaging": p.get("packaging", ""),
+                    "categories": p.get("category", ""),
+                    "ingredients_text": p.get("ingredients", ""),
+                    "labels": p.get("features", ""),
+                    "nutriscore_grade": "",
+                    "packaging_tags": [],
+                    "price": p.get("stores", [{}])[0].get("price", "") if p.get("stores") else "",
+                    "size": p.get("size", ""),
+                    "recyclable": "",
+                    "description": p.get("description", ""),
+                    "_source": "barcodelookup"
+                }
     except Exception as e:
-        print(f"Unexpected error: {e}")
-        return {}
+        print(f"Barcode Lookup error: {e}")
+    return {}
 
 def fetch_from_indian_csv(barcode: str) -> dict:
     product = INDIAN_PRODUCTS.get(barcode.strip())
