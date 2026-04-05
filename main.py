@@ -133,57 +133,69 @@ def fetch_from_indian_csv(barcode: str) -> dict:
 def fetch_from_openfoodfacts(barcode: str) -> dict:
     url = f"https://world.openfoodfacts.org/api/v0/product/{barcode}.json"
     try:
-        response = requests.get(url, timeout=5)
+        headers = {
+            "User-Agent": "SustainableShoppingAssistant/1.0 (college project; contact@example.com)"
+        }
+        response = requests.get(url, timeout=5, headers=headers)
         data = response.json()
         if data.get("status") == 1:
             product = data["product"]
             if product.get("product_name"):
                 product["_source"] = "food"
                 return product
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"Open Food Facts error: {e}")
     return {}
 
 def fetch_from_openbeautyfacts(barcode: str) -> dict:
     url = f"https://world.openbeautyfacts.org/api/v0/product/{barcode}.json"
     try:
-        response = requests.get(url, timeout=5)
+        headers = {
+            "User-Agent": "SustainableShoppingAssistant/1.0 (college project; contact@example.com)"
+        }
+        response = requests.get(url, timeout=5, headers=headers)
         data = response.json()
         if data.get("status") == 1:
             product = data["product"]
             if product.get("product_name"):
                 product["_source"] = "beauty"
                 return product
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"Open Beauty Facts error: {e}")
     return {}
 
 def fetch_from_openproductsfacts(barcode: str) -> dict:
     url = f"https://world.openproductsfacts.org/api/v0/product/{barcode}.json"
     try:
-        response = requests.get(url, timeout=5)
+        headers = {
+            "User-Agent": "SustainableShoppingAssistant/1.0 (college project; contact@example.com)"
+        }
+        response = requests.get(url, timeout=5, headers=headers)
         data = response.json()
         if data.get("status") == 1:
             product = data["product"]
             if product.get("product_name"):
                 product["_source"] = "products"
                 return product
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"Open Products Facts error: {e}")
     return {}
 
 def fetch_from_openpetfoodfacts(barcode: str) -> dict:
     url = f"https://world.openpetfoodfacts.org/api/v0/product/{barcode}.json"
     try:
-        response = requests.get(url, timeout=5)
+        headers = {
+            "User-Agent": "SustainableShoppingAssistant/1.0 (college project; contact@example.com)"
+        }
+        response = requests.get(url, timeout=5, headers=headers)
         data = response.json()
         if data.get("status") == 1:
             product = data["product"]
             if product.get("product_name"):
                 product["_source"] = "petfood"
                 return product
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"Open Pet Food Facts error: {e}")
     return {}
 
 def fetch_product(barcode: str) -> dict:
