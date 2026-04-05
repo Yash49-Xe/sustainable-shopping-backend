@@ -78,27 +78,28 @@ def fetch_from_barcodelookup(barcode: str) -> dict:
     url = f"https://api.barcodelookup.com/v3/products?barcode={barcode}&formatted=y&key={api_key}"
     try:
         response = requests.get(url, timeout=5)
-        if response.status_code == 200:
-            data = response.json()
-            products = data.get("products", [])
-            if products:
-                p = products[0]
-                # Map Barcode Lookup fields to our format
-                return {
-                    "product_name": p.get("title", ""),
-                    "brands": p.get("brand", ""),
-                    "packaging": p.get("packaging", ""),
-                    "categories": p.get("category", ""),
-                    "ingredients_text": p.get("ingredients", ""),
-                    "labels": p.get("features", ""),
-                    "nutriscore_grade": "",
-                    "packaging_tags": [],
-                    "price": p.get("stores", [{}])[0].get("price", "") if p.get("stores") else "",
-                    "size": p.get("size", ""),
-                    "recyclable": "",
-                    "description": p.get("description", ""),
-                    "_source": "barcodelookup"
-                }
+        # if response.status_code == 200:
+        #     data = response.json()
+        #     products = data.get("products", [])
+        #     if products:
+        #         p = products[0]
+        #         # Map Barcode Lookup fields to our format
+        #         return {
+        #             "product_name": p.get("title", ""),
+        #             "brands": p.get("brand", ""),
+        #             "packaging": p.get("packaging", ""),
+        #             "categories": p.get("category", ""),
+        #             "ingredients_text": p.get("ingredients", ""),
+        #             "labels": p.get("features", ""),
+        #             "nutriscore_grade": "",
+        #             "packaging_tags": [],
+        #             "price": p.get("stores", [{}])[0].get("price", "") if p.get("stores") else "",
+        #             "size": p.get("size", ""),
+        #             "recyclable": "",
+        #             "description": p.get("description", ""),
+        #             "_source": "barcodelookup"
+        #         }
+        return response.json()
     except Exception as e:
         print(f"Barcode Lookup error: {e}")
     return {}
