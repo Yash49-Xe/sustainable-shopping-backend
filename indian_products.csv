@@ -10,7 +10,7 @@ barcode,product_name,brand,category,packaging,ingredients_text,labels,nutriscore
 8901058003692,KitKat 2 Finger,Nestle,chocolate,plastic,sugar wheat flour cocoa butter milk,Vegetarian,d,₹20,27g,no
 8901058880093,Nestle KitKat 4 Finger,Nestle,chocolate,plastic,sugar wheat flour cocoa butter milk,Vegetarian,d,₹40,41.5g,no
 8901491503993,Lays Classic Salted,PepsiCo,chips,plastic,potatoes vegetable oil salt,Vegetarian,d,₹10,26g,no
-8901491504020,Lays Magic Masala,PepsiCo,chips,plastic,potatoes vegetable oil spices,Vegetarian,d,₹20,52g,no
+8901491101844,Lays Magic Masala,PepsiCo,chips,plastic,potatoes vegetable oil spices,Vegetarian,d,₹20,52g,no
 8901491504037,Lays American Style Cream Onion,PepsiCo,chips,plastic,potatoes vegetable oil spices,Vegetarian,d,₹40,104g,no
 8901063100527,Kurkure Masala Munch,PepsiCo,chips,plastic,rice meal corn meal palm oil spices,Vegetarian,e,₹10,22g,no
 8901063100534,Kurkure Hyderabadi Hungama,PepsiCo,chips,plastic,rice meal corn meal palm oil spices,Vegetarian,e,₹20,45g,no
@@ -38,8 +38,8 @@ barcode,product_name,brand,category,packaging,ingredients_text,labels,nutriscore
 8901030001008,Amul Paneer,Amul,dairy,plastic,milk,Vegetarian,c,₹80,200g,no
 8901030020023,Amul Ghee Tin,Amul,dairy,tin,pure cow ghee,Vegetarian,d,₹500,1L,yes
 8901764100023,Haldiram Bhujia,Haldirams,snack,plastic,besan vegetable oil spices,Vegetarian,d,₹10,30g,no
-8901764000238,Haldiram Aloo Bhujia,Haldirams,snack,plastic,potato besan spices oil,Vegetarian,d,₹20,150g,no
-8901764000252,Haldirams Namkeen Mix,Haldirams,snack,plastic,besan peanuts spices oil,Vegetarian,d,₹30,200g,no
+8904063200051,Haldiram Aloo Bhujia,Haldirams,snack,plastic,potato besan spices oil,Vegetarian,d,₹57,200g,no
+8904004401158,Haldirams Khatta Meetha,Haldirams,snack,plastic,besan peanuts spices oil,Vegetarian,d,₹50,200g,no
 8901764500016,Haldirams Soan Papdi,Haldirams,sweet,cardboard,sugar besan ghee cardamom,Vegetarian,d,₹50,250g,yes
 8901764500023,Haldirams Soan Papdi,Haldirams,sweet,cardboard,sugar besan ghee cardamom,Vegetarian,d,₹120,500g,yes
 8906001000023,Paper Boat Aamras,Hector Beverages,juice,tetra pak,mango pulp sugar water,Vegan,c,₹20,200ml,partial
@@ -48,7 +48,7 @@ barcode,product_name,brand,category,packaging,ingredients_text,labels,nutriscore
 8906017720018,Raw Pressery Apple Juice,Raw Pressery,juice,plastic,apple juice,Vegan,b,₹40,250ml,no
 8901396030092,Dettol Original Soap,Reckitt,soap,plastic,soap trichlocarban,Antibacterial,,₹38,100g,no
 8901396030108,Dettol Original Soap,Reckitt,soap,plastic,soap trichlocarban,Antibacterial,,₹65,125g,no
-8901396020511,Dettol Handwash,Reckitt,soap,plastic,water chloroxylenol,Antibacterial,,₹60,200ml,no
+8901396324584,Dettol Handwash,Reckitt,soap,plastic,water chloroxylenol,Antibacterial,,₹99,200ml,no
 8901396020528,Dettol Shampoo Anti Dandruff,Reckitt,shampoo,plastic,water sodium laureth sulphate zinc pyrithione,,,,no
 8901612000110,Colgate Strong Teeth,Colgate,toothpaste,plastic,calcium carbonate fluoride,Dentist recommended,,₹49,100g,no
 8901612010027,Colgate MaxFresh,Colgate,toothpaste,plastic,calcium carbonate fluoride menthol,Dentist recommended,,₹99,150g,no
