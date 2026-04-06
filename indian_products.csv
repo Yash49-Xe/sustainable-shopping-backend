@@ -69,6 +69,7 @@ barcode,product_name,brand,category,packaging,ingredients_text,labels,nutriscore
 8901030750094,Amul Chocobar,Amul,icecream,plastic,milk sugar cocoa,Vegetarian,d,₹20,60ml,no
 8901063000012,Pepsi,PepsiCo,beverage,plastic,carbonated water sugar caramel color,Vegan,e,₹20,250ml,no
 8901063000029,Pepsi,PepsiCo,beverage,plastic,carbonated water sugar caramel color,Vegan,e,₹40,600ml,no
+8902579000370,Frooty,Parle Argo,beverage,tetra pack,water sugar mango,Vegan,a,₹10,150ml,yes
 8901063000036,7UP,PepsiCo,beverage,plastic,carbonated water sugar citric acid,Vegan,e,₹20,250ml,no
 8901063000043,Mountain Dew,PepsiCo,beverage,plastic,carbonated water sugar citric acid,Vegan,e,₹20,250ml,no
 8901058009472,Nestle Milo,Nestle,beverage,cardboard,malt extract milk cocoa sugar,Vegetarian,c,₹99,200g,yes
