@@ -200,10 +200,10 @@ def fetch_from_openpetfoodfacts(barcode: str) -> dict:
 
 def fetch_product(barcode: str) -> dict:
     # 1. Barcode Lookup API (best Indian coverage)
-    product = fetch_from_openfoodfacts(barcode)
+    product = fetch_from_indian_csv(barcode)
     if not product:
         # 2. Our Indian CSV database
-        product = fetch_from_indian_csv(barcode)
+        product = fetch_from_openfoodfacts(barcode)
     if not product:
         # 3. Open Food Facts
         product = fetch_from_barcodelookup(barcode)
